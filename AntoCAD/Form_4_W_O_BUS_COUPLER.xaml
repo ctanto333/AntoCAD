@@ -10,10 +10,11 @@
 
     <Grid>
         <Label x:Name="label" Content="INCOMER :" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="136,30,0,0" VerticalAlignment="Top" Height="26" Width="200">
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="136,30,0,0" VerticalAlignment="Top" Height="26" Width="200" SelectionChanged="comboBox_SelectionChanged">
             <ComboBoxItem Name="Incomer_1">2500 4P ACB</ComboBoxItem>
             <ComboBoxItem Name="Incomer_2">2500 3P ACB</ComboBoxItem>
         </ComboBox>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="31" Margin="366,111,0,0" VerticalAlignment="Top" Width="62" Click="button_Click"/>
 
     </Grid>
 </Page>
