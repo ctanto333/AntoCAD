@@ -25,16 +25,16 @@ namespace AntoCAD
         public AcadApplication AcadApp { get; private set; }
         public AcadCircle Circle { get; private set; }
 
-        string s = "2500 4P ACB";
+        string incomer;
 
         public Form_4_W_O_BUS_COUPLER()
         {
             InitializeComponent();
         }
 
-        public void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            s = comboBox.Items.GetItemAt(comboBox.SelectedIndex).ToString();
+            incomer = this.comboBox.SelectedValue.ToString();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -46,7 +46,7 @@ namespace AntoCAD
             //AcadApp = (AcadApplication)Activator.CreateInstance(Type.GetTypeFromProgID("AutoCAD.Application.22"), true);
             //AcadApp.Visible = true;
 
-            if (s == "2500 4P ACB")
+            if (incomer.Contains("2500 4P ACB"))
             {
                 double RadiusOfCircle = 5;
                 double[] CenterOfCircle = new double[3];
