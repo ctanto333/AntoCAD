@@ -15,7 +15,6 @@
             <Label x:Name="Form_4" Content="Form-4" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="10" Canvas.Top="380" />
             <Button x:Name="Form_4_W_O_BUS_COUPLER" Content="Form-4 W/O BUS COUPLER" Canvas.Left="78" Canvas.Top="436" Width="300" FontSize="18" Click="Form_4_W_O_BUS_COUPLER_Click"/>
             <Button x:Name="Form_4_W_I_BUS_COUPLER" Content="Form-4 W/I BUS COUPLER" Canvas.Left="78" Canvas.Top="498" Width="300" FontSize="18"/>
-            <Button Content="Button" Height="27" Canvas.Left="413" Canvas.Top="464" Width="73"/>
 
         </Canvas>
 
