@@ -39,7 +39,7 @@ namespace AntoCAD
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            AcadApp = (AcadApplication)Marshal.GetActiveObject("AutoCAD.Application");
+            AcadApp = (AcadApplication)Marshal.GetActiveObject("AutoCAD.Application.24"); //OPENING AUTOCAD 2021
             string template = "acad.dwt";
             AcadDocument dwg = AcadApp.Documents.Add(template);
 
