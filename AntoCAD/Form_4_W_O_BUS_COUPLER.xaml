@@ -44,7 +44,7 @@
             Content="Button"
             HorizontalAlignment="Left"
             Height="31"
-            Margin="366,111,0,0"
+            Margin="720,25,0,0"
             VerticalAlignment="Top"
             Width="62"
             Click="button_Click" />
@@ -55,13 +55,15 @@
             Margin="386,30,0,0"
             VerticalAlignment="Top" />
         <TextBox
+            x:Name="outgoings"
             HorizontalAlignment="Left"
             Height="26"
             Margin="540,30,0,0"
             TextWrapping="Wrap"
-            Text="--"
+            Text="---"
             VerticalAlignment="Top"
-            Width="48" />
+            Width="30"
+            KeyDown="outgoings_KeyDown" />
 
     </Grid>
 </Page>

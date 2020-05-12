@@ -26,6 +26,7 @@ namespace AntoCAD
         public AcadCircle Circle { get; private set; }
 
         string incomer;
+        int noOfOutgoings;
 
         public Form_4_W_O_BUS_COUPLER()
         {
@@ -61,6 +62,15 @@ namespace AntoCAD
                 CenterOfBlock[1] = 0;
                 CenterOfBlock[2] = 0;
                 //AcadApp.ActiveDocument.ModelSpace.InsertBlock(CenterOfBlock, "D:\\Block\\250A_MCCB_3P.dwg", 1, 1, 1, 0);
+            }
+        }
+
+        //Get no of outgoings and store it to a variable.
+        private void outgoings_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                noOfOutgoings = Convert.ToInt32(this.outgoings.Text);
             }
         }
     }
