@@ -40,16 +40,19 @@ namespace AntoCAD
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            AcadApp = (AcadApplication)Marshal.GetActiveObject("AutoCAD.Application.24"); // OPENING AUTOCAD 2021 //Reference file also changed
-            string template = "acad.dwt";
-            AcadDocument dwg = AcadApp.Documents.Add(template);
+            //AcadApp = (AcadApplication)Marshal.GetActiveObject("AutoCAD.Application.23"); // OPENING AUTOCAD 2020 //Reference file is in c/programfiles/commonfiles/autodeskshared
+            //string template = "acad.dwt";
+            //AcadDocument dwg = AcadApp.Documents.Add(template);
 
-            //AcadApp = (AcadApplication)Activator.CreateInstance(Type.GetTypeFromProgID("AutoCAD.Application.22"), true);
+            //AcadApp = (AcadApplication)Activator.CreateInstance(Type.GetTypeFromProgID("AutoCAD.Application.23"), true);
             //AcadApp.Visible = true;
+
+            AcadApp = (AcadApplication)Marshal.GetActiveObject("AutoCAD.Application.23");
+
 
             if (incomer.Contains("2500 4P ACB"))
             {
-                double RadiusOfCircle = 5;
+                double RadiusOfCircle = 50;
                 double[] CenterOfCircle = new double[3];
                 CenterOfCircle[0] = 0;
                 CenterOfCircle[1] = 0;
@@ -57,10 +60,10 @@ namespace AntoCAD
                 Circle = AcadApp.ActiveDocument.ModelSpace.AddCircle(CenterOfCircle, RadiusOfCircle);
 
 
-                double[] CenterOfBlock = new double[3];
-                CenterOfBlock[0] = 0;
-                CenterOfBlock[1] = 0;
-                CenterOfBlock[2] = 0;
+                //double[] CenterOfBlock = new double[3];
+                //CenterOfBlock[0] = 0;
+                //CenterOfBlock[1] = 0;
+                //CenterOfBlock[2] = 0;
                 //AcadApp.ActiveDocument.ModelSpace.InsertBlock(CenterOfBlock, "D:\\Block\\250A_MCCB_3P.dwg", 1, 1, 1, 0);
             }
         }
