@@ -105,6 +105,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Reference Libraries\acax23enu.tlb" />
+    <None Include="Reference Libraries\axdb23enu.tlb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

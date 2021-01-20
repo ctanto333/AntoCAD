@@ -23,8 +23,7 @@
             Margin="136,30,0,0"
             VerticalAlignment="Top"
             Height="26"
-            Width="200"
-            SelectionChanged="ComboBox_SelectionChanged">
+            Width="200">
             <ComboBoxItem>2500A 4P ACB</ComboBoxItem>
             <ComboBoxItem>2500A 3P ACB</ComboBoxItem>
             <ComboBoxItem>1600A 4P ACB</ComboBoxItem>
@@ -62,8 +61,7 @@
             TextWrapping="Wrap"
             Text="---"
             VerticalAlignment="Top"
-            Width="30"
-            KeyDown="outgoings_KeyDown" />
+            Width="30" />
 
     </Grid>
 </Page>

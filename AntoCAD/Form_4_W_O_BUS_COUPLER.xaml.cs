@@ -22,59 +22,45 @@ namespace AntoCAD
     /// </summary>
     public partial class Form_4_W_O_BUS_COUPLER : Page
     {
-        public AcadApplication AcadApp { get; private set; }
-        public AcadCircle Circle { get; private set; }
-
-        string incomer;
-        int noOfOutgoings;
-
+        
         public Form_4_W_O_BUS_COUPLER()
         {
             InitializeComponent();
         }
 
-        public void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            incomer = this.comboBox.SelectedValue.ToString();
-        }
+        public AcadApplication AcadApp { get; private set; }
+        public AcadCircle Circle { get; private set; }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //AcadApp = (AcadApplication)Marshal.GetActiveObject("AutoCAD.Application.23"); // OPENING AUTOCAD 2020 //Reference file is in c/programfiles/commonfiles/autodeskshared
-            //string template = "acad.dwt";
-            //AcadDocument dwg = AcadApp.Documents.Add(template);
+            // Getting running AutoCAD instance by Marshalling by passing Programmatic ID as a string, AutoCAD.Application is the Programmatic ID for AutoCAD.
+            AcadApp = (AcadApplication)Marshal.GetActiveObject("AutoCAD.Application");
+            string template = "acad.dwt";
+            _ = AcadApp.Documents.Add(template);
 
-            //AcadApp = (AcadApplication)Activator.CreateInstance(Type.GetTypeFromProgID("AutoCAD.Application.23"), true);
-            //AcadApp.Visible = true;
+            // Now AcadApp has the reference to the running AutoCAD instance, AcadApp object acts as a port for accessing running instance of AutoCAD.
 
-            AcadApp = (AcadApplication)Marshal.GetActiveObject("AutoCAD.Application.23");
+            // Syntax for creating circle in AutoCAD
+            // AcadApp.ActiveDocument.ModelSpace.AddCircle(CenterOfCircle, RadiusOfCircle);
+            //
+            // AcadApp        - Reference to the running instance of AutoCAD.
+            // ActiveDocument - Represents the current working drawing in AutoCAD.
+            // ModelSpace     - Work Area in the current drawing.
+            // AddCricle      - Method, which adds a circle to the modelspace of the current drawing using the CenterPoint and Radius.
+            // CenterOfCircle - 3 Dimensional double array variable holds the center point of the circle in the X, Y and Z axis.
+            // RadiusOfCircle - Double variable holds the radius of circle.
 
+            // Definfing the center point for the circle, in this example, we are using origin(0,0,0) as the center of circle.
+            double[] CenterOfCircle = new double[3];
+            CenterOfCircle[0] = 0;
+            CenterOfCircle[1] = 0;
+            CenterOfCircle[2] = 0;
 
-            if (incomer.Contains("2500 4P ACB"))
-            {
-                double RadiusOfCircle = 50;
-                double[] CenterOfCircle = new double[3];
-                CenterOfCircle[0] = 0;
-                CenterOfCircle[1] = 0;
-                CenterOfCircle[2] = 0;
-                Circle = AcadApp.ActiveDocument.ModelSpace.AddCircle(CenterOfCircle, RadiusOfCircle);
+            // Defining radius of circle.
+            double RadiusOfCircle = 50;
 
-
-                //double[] CenterOfBlock = new double[3];
-                //CenterOfBlock[0] = 0;
-                //CenterOfBlock[1] = 0;
-                //CenterOfBlock[2] = 0;
-                //AcadApp.ActiveDocument.ModelSpace.InsertBlock(CenterOfBlock, "D:\\Block\\250A_MCCB_3P.dwg", 1, 1, 1, 0);
-            }
-        }
-
-        //Get no of outgoings and store it to a variable.
-        private void outgoings_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                noOfOutgoings = Convert.ToInt32(this.outgoings.Text);
-            }
+            // Adding Circle to the modelspace and getting reference to the circle created.
+            Circle = AcadApp.ActiveDocument.ModelSpace.AddCircle(CenterOfCircle, RadiusOfCircle);
         }
     }
 }
